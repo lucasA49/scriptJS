@@ -67,12 +67,11 @@ const mergeToMain = async () => {
   }
 };
 
-// Fonction principale pour orchestrer tout le processus
 const main = async () => {
-  await createOrSwitchToDevBranch();  // Créer ou switcher vers dev
-  await pushToDev();  // Pousser les modifications sur dev
-  await runTests();  // Exécuter les tests
-  await mergeToMain();  // Si les tests réussissent, merge vers main
+  await createOrSwitchToDevBranch(); 
+  await pushToDev();  
+  await runTests();  
+  await mergeToMain();  
 };
 
 // Lancer le script
