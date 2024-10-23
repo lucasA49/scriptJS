@@ -1,6 +1,5 @@
 import { exec } from 'child_process';
 
-// Fonction pour exécuter une commande shell
 const runCommand = (command) => {
   return new Promise((resolve, reject) => {
     exec(command, (error, stdout, stderr) => {
@@ -13,7 +12,6 @@ const runCommand = (command) => {
   });
 };
 
-// Créer ou basculer sur la branche de développement
 const createOrSwitchToDevBranch = async () => {
   try {
     console.log('Création de la branche dev ou basculement...');
@@ -24,7 +22,7 @@ const createOrSwitchToDevBranch = async () => {
   }
 };
 
-// Pousser les modifications sur dev
+// Pousser les modifications 
 const pushToDev = async () => {
   try {
     console.log('Pushing sur dev...');
@@ -37,19 +35,19 @@ const pushToDev = async () => {
   }
 };
 
-// Exécuter les tests
+// Lance  les tests
 const runTests = async () => {
   try {
     console.log('Exécution des tests...');
-    await runCommand('npm test');  // Exécute les tests configurés dans ton projet
+    await runCommand('npm test'); 
     console.log('Tous les tests sont passés avec succès.');
   } catch (error) {
     console.error('Les tests ont échoué. Le merge ne sera pas effectué.');
-    process.exit(1);  // Arrête le script si les tests échouent
+    process.exit(1); 
   }
 };
 
-// Fusionner la branche dev dans main et pusher sur main
+// Merge les branche et push
 const mergeToMain = async () => {
   try {
     console.log('Basculement sur main...');
@@ -74,5 +72,4 @@ const main = async () => {
   await mergeToMain();  
 };
 
-// Lancer le script
 main();
